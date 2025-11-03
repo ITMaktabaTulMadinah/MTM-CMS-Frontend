@@ -3,7 +3,7 @@ import axios from "axios";
 const API_BASE_URL =
   import.meta.env.VITE_API_BASE_URL ||
   "http://localhost:5000/api" ||
-  "https://mtm-cms-backend.vercel.app/";
+  "https://mtm-cms-backend.vercel.app/api";
 
 // Create axios instance
 const api = axios.create({
