@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_BASE_URL = "http://115.42.74.50:7861/api";
+const API_BASE_URL = "https://it-complain.duckdns.org/api";
 
 // Create axios instance
 const api = axios.create({
