@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_BASE_URL = "https://mtm-cms-backend.vercel.app/api";
+const API_BASE_URL = "http://115.42.74.50:7861/api";
 
 // Create axios instance
 const api = axios.create({
