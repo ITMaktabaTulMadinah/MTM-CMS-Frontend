@@ -3,7 +3,7 @@ import toast from "react-hot-toast";
 import { useEffect, useRef, useState } from "react";
 import api from "../../services/api";
 
-const SOCKET_URL = "https://mtm-cms-backend.vercel.app";
+const SOCKET_URL = "http://localhost:3000";
 
 const ComplaintChat = ({ complaintId, token, user }) => {
   const [messages, setMessages] = useState([]);
