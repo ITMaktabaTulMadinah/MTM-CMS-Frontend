@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_BASE_URL = "https://it-complain.duckdns.org/api";
+const API_BASE_URL = "https://complain.itexpertssolution.com/";
 
 // Create axios instance
 const api = axios.create({
