@@ -14,6 +14,10 @@ import ComplaintDetails from "./pages/ComplaintDetails.jsx";
 import AllComplaints from "./pages/AllComplaints.jsx";
 import AdminUsers from "./pages/AdminUsers.jsx";
 import AdminAnalytics from "./pages/AdminAnalytics.jsx";
+import Gatepass from "./pages/Gatepass.jsx";
+import GatepassForm from "./components/gatepass/GatepassForm.jsx";
+import GatepassDetails from "./pages/GatepassDetails.jsx";
+import GatepassPrint from "./components/gatepass/GatepassPrint.jsx";
 
 // Create a client
 const queryClient = new QueryClient();
@@ -90,6 +94,49 @@ function App() {
                 <AdminRoute>
                   <Layout>
                     <AdminAnalytics />
+                  </Layout>
+                </AdminRoute>
+              }
+            />
+
+            <Route
+              path="/admin/gatepass"
+              element={
+                <AdminRoute>
+                  <Layout>
+                    <Gatepass />
+                  </Layout>
+                </AdminRoute>
+              }
+            />
+
+            <Route
+              path="/admin/gatepass/form"
+              element={
+                <AdminRoute>
+                  <Layout>
+                    <GatepassForm />
+                  </Layout>
+                </AdminRoute>
+              }
+            />
+
+            <Route
+              path="/admin/gatepass/:id"
+              element={
+                <AdminRoute>
+                  <Layout>
+                    <GatepassDetails />
+                  </Layout>
+                </AdminRoute>
+              }
+            />
+            <Route
+              path="/admin/gatepass/print/:id"
+              element={
+                <AdminRoute>
+                  <Layout>
+                    <GatepassPrint />
                   </Layout>
                 </AdminRoute>
               }

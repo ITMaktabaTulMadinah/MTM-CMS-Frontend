@@ -105,4 +105,34 @@ export const adminAPI = {
     });
     return response.data;
   },
+
+  //createGatepass
+  createGatepass: async (gatepassData) => {
+    const response = await api.post("/gatepass", gatepassData);
+    return response.data;
+  },
+
+  // getAllGatepasses
+  getAllGatepasses: async (params = {}) => {
+    const response = await api.get("/gatepass", { params });
+    return response.data;
+  },
+
+  //updateGatepass
+  updateGatepass: async (id, gatepassData) => {
+    const response = await api.put(`/gatepass/${id}`, gatepassData);
+    return response.data;
+  },
+
+  //getGatepassById
+  getGatepassById: async (id) => {
+    const response = await api.get(`/gatepass/${id}`);
+    return response.data;
+  },
+
+  // deleteGatepass
+  deleteGatepass: async (id) => {
+    const response = await api.delete(`/gatepass/${id}`);
+    return response.data;
+  },
 };

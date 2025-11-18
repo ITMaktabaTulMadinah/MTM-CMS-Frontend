@@ -46,6 +46,7 @@ const Layout = ({ children }) => {
     { name: "All Complaints", href: "/complaints", icon: "📋" },
     { name: "Users", href: "/admin/users", icon: "👥" },
     { name: "Analytics", href: "/admin/analytics", icon: "📈" },
+    { name: "Gatepass", href: "/admin/gatepass", icon: "🚪" },
   ];
 
   const currentNavigation =
