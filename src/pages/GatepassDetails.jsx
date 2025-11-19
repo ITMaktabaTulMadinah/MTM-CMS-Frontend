@@ -204,7 +204,7 @@ const GatepassDetails = () => {
             </h3>
 
             <div className="bg-gray-50 p-4 rounded-xl">
-              <QRCode value={gatepass?._id} size={150} />
+              <QRCode value={gatepass?.gatepassId} size={150} />
             </div>
 
             <p className="mt-3 text-sm text-gray-500">

@@ -114,7 +114,7 @@ const GatepassPrint = () => {
               <div className="borderclass"></div>
               <p className="text-center">Authorize By</p>
             </div>
-            <QRCode value={gatepass?._id} size={80} />
+            <QRCode value={gatepass?.gatepassId || "Loading..."} size={80} />
             <div>
               <div className="borderclass"></div>
               <p className="text-center">STAMP</p>
