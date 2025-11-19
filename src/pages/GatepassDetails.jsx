@@ -5,6 +5,7 @@ import { useAuth } from "../store/authContext.jsx";
 import toast from "react-hot-toast";
 import Spinner from "../components/Spinner.jsx";
 import ComplaintChat from "../components/complaints/ComplainChat.jsx";
+import QRCode from "react-qr-code";
 
 const GatepassDetails = () => {
   const { id } = useParams();
@@ -194,6 +195,21 @@ const GatepassDetails = () => {
                 </span>
               </div>
             </div>
+          </div>
+
+          {/* QR Code Card */}
+          <div className="bg-white shadow rounded-2xl p-6 border border-gray-100 flex flex-col items-center">
+            <h3 className="text-lg font-semibold text-gray-900 mb-4">
+              Gatepass QR Code
+            </h3>
+
+            <div className="bg-gray-50 p-4 rounded-xl">
+              <QRCode value={gatepass?._id} size={150} />
+            </div>
+
+            <p className="mt-3 text-sm text-gray-500">
+              Scan to view gatepass details
+            </p>
           </div>
 
           {/* Admin Actions */}

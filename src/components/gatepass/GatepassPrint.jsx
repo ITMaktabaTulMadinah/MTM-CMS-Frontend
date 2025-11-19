@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { adminAPI } from "../../services/authService";
+import QRCode from "react-qr-code";
 
 const GatepassPrint = () => {
   const { id } = useParams();
@@ -37,16 +38,16 @@ const GatepassPrint = () => {
           <style>
             @page {
               size: A4;
-              margin: 10mm;
             }
     
             /* Print area ko half A4 ka banao */
             .print-area {
               width: 160mm;
+              margin: 0px auto;
               height: 135mm; /* half se thoda kam so it fits cleanly */
               border: 2px solid black;
               padding: 10mm;
-              box-sizing: border-box;
+              box-sizing: border-box; 
               page-break-inside: avoid;
               position: relative;
             }
@@ -79,8 +80,8 @@ const GatepassPrint = () => {
   return (
     <div>
       <div className="bg-white p-6 rounded-xl shadow space-y-4">
-        <div ref={printRef} className="print-area border-2 rounded-md">
-          <h1 className="text-center font-semibold text-2xl py-2 uppercase underline">
+        <div ref={printRef} className="print-area border-2 rounded-md relative">
+          <h1 className="text-center font-semibold text-3xl pb-2 uppercase underline">
             Gatepass
           </h1>
           <div className="flex justify-between items-center px-4 py-4">
@@ -107,12 +108,13 @@ const GatepassPrint = () => {
             <div className="font-medium text-sm underline">{`Gatepass No: ${gatepass?.gatepassId}`}</div>
           </div>
           <h3 className="text-center font-semibold underline py-6 text-xl">{`Maktaba Tul Madinah (Head Office)`}</h3>
-          <h4 className="text-center text-2xl">{gatepass?.narration}</h4>
+          <h4 className="text-center text-xl">{gatepass?.narration}</h4>
           <div className="absolute bottom-4 left-0 right-0 px-10 flex items-center justify-between">
             <div>
               <div className="borderclass"></div>
               <p className="text-center">Authorize By</p>
             </div>
+            <QRCode value={gatepass?._id} size={80} />
             <div>
               <div className="borderclass"></div>
               <p className="text-center">STAMP</p>
