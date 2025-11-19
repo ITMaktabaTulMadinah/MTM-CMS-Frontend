@@ -67,6 +67,18 @@ const GatepassDetails = () => {
     }
   };
 
+  const handleDeleteGatepass = async (gatepassid) => {
+    if (window.confirm("Are you sure you want to delete this gatepass?")) {
+      try {
+        await adminAPI.deleteGatepass(gatepassid);
+        toast.success("Gatepass deleted successfully");
+        fetchGatepass();
+      } catch (error) {
+        toast.error("Failed to delete gatepass");
+      }
+    }
+  };
+
   if (loading) {
     return <Spinner />;
   }
@@ -97,12 +109,20 @@ const GatepassDetails = () => {
             <span className="font-semibold">{gatepass?.gatepassId}</span>
           </p>
         </div>
-        <button
-          onClick={() => navigate(`/admin/gatepass/print/${gatepass._id}`)}
-          className="bg-white text-blue-600 font-medium px-4 py-2 rounded-lg hover:bg-gray-100 transition-all"
-        >
-          Go to Print Screen
-        </button>
+        <div className="flex items-center gap-4">
+          <button
+            onClick={() => navigate(`/admin/gatepass`)}
+            className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white border font-medium px-4 py-2 rounded-lg hover:bg-white transition-all"
+          >
+            Go to gatepass list
+          </button>
+          <button
+            onClick={() => navigate(`/admin/gatepass/print/${gatepass._id}`)}
+            className="bg-white text-blue-600 font-medium px-4 py-2 rounded-lg hover:bg-gray-100 transition-all"
+          >
+            Go to Print Screen
+          </button>
+        </div>
       </div>
 
       {/* Main Details Grid */}
